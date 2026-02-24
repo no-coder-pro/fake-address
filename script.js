@@ -10,10 +10,11 @@ let currentAddressData = null;
 
 // The ordered list of keys we prefer to show
 const FIELD_ORDER = [
+    'Street', 'City/Town', 'State/Province/Region', 'Zip/Postal Code',
+    'Country', 'Country_Code', 'Latitude', 'Longitude',
     'Full Name', 'Gender', 'Birthday', 'Phone Number',
     'Credit card brand', 'Credit card number', 'Expire', 'CVV',
-    'Street', 'City/Town', 'State/Province/Region', 'Zip/Postal Code',
-    'Country', 'Country_Code', 'Latitude', 'Longitude', 'Social Security Number'
+    'Social Security Number'
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
