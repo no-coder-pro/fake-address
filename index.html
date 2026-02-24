@@ -1,17 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>fake address</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="https://bbinl.github.io/cc-gen/favicon.png" />
-  <style>
-    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-    iframe { position: fixed; top: 0; left: 0; border: none; width: 100vw; height: 100vh; z-index: 9999; }
-  </style>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fake Address Generator</title>
+    <meta name="description"
+        content="Free online fake address generator. Fast, secure, and reliable tool for generating random addresses for multiple countries.">
+    <meta name="keywords" content="fake address, address generator, random address, test data, fake data generator">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Fake Address Generator">
+    <meta property="og:description" content="Free online fake address generator.">
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <meta name="theme-color" content="#1e3a8a">
+    <link rel="icon" type="image/png" href="https://bbinl.site/cc-gen/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+    <style>
+        /* Custom styles for Fakexy UI on top of the base theme */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .country-btn {
+            padding: 8px 10px;
+            min-height: 48px;
+            font-size: 13px;
+            border-radius: var(--radius-md);
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border);
+            color: var(--secondary-text);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        .country-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .country-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .address-field {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .address-field label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .address-input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .address-input-group input {
+            width: 100%;
+            padding: 10px 40px 10px 12px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            cursor: text;
+        }
+
+        .address-input-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 6px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--secondary-bg);
+            color: var(--primary);
+        }
+
+        .loading-skeleton {
+            animation: pulse 1.5s infinite ease-in-out;
+            background-color: var(--secondary-bg);
+            height: 38px;
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <!-- URL এর শেষে কোটেশন (") ঠিক করা হয়েছে -->
-  <iframe src="https://fakexy-api-sage.vercel.app/" allowfullscreen></iframe>
+    <div id="app">
+        <!-- Navigation Section -->
+        <nav class="navigations">
+            <a href="https://bbinl.site/" class="site-header">
+                <img src="https://bbinl.site/cc-gen/favicon.png" alt="Logo" class="header-logo">
+                Assress Gen
+            </a>
+            <div class="menu-container">
+                <div onclick="toggleMenu()" class="menu-toggle"><i class="fas fa-bars"></i></div>
+                <ul id="dropdown-menu" class="dropdown-menu">
+                    <li><a href="https://bbinl.site/cc-gen/" target="_blank">cc generator</a></li>
+                    <li><a href="https://bbinl.site/cc-checker-faker/" target="_blank">cc checker</a></li>
+                    <li><a href="https://bbinl.site/stripe-checker/" target="_blank">stripe cc checker</a></li>
+                    <li><a href="https://bbinl.site/vbv-checker/" target="_blank">vbv checker</a></li>
+                    <li><a href="https://bbinl.site/checker-top/" target="_blank">checker.top</a></li>
+                    <li><a href="https://bbinl.site/b3-checker/" target="_blank">b3 cc checker</a></li>
+                    <li><a href="https://bbinl.site/fake-address/" target="_blank">Fake Address</a></li>
+                    <li><a href="https://t.me/bro_bin_lagbe" target="_blank">Join Us</a></li>
+                    <li><a href="https://bbinl.site/all-api/" target="_blank">bBINl all API</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-center" style="margin: 20px 0;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key': 'aeb1dc240df8fbfaef1b2b68907cfd5a',
+                    'format': 'iframe',
+                    'height': 60,
+                    'width': 468,
+                    'params': {}
+                };
+            </script>
+            <script type="text/javascript" async
+                src="//www.highperformanceformat.com/aeb1dc240df8fbfaef1b2b68907cfd5a/invoke.js"></script>
+        </div>
+
+        <div class="container">
+            <!-- info notice -->
+            <div class="info-card">
+                <p>
+                    <strong>Fake Address Generator</strong> - Instantly generate realistic test addresses. Select a
+                    country below to generate data. <u>1-click copy</u> enabled.
+                </p>
+            </div>
+
+            <div class="row">
+                <!-- FORM SECTION -->
+                <div class="col-md-6">
+                    <div class="app-card">
+                        <div class="form-group"
+                            style="height: 100%; display: flex; flex-direction: column; margin-bottom: 0;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <label style="margin-bottom: 0;"><i class="fa-solid fa-globe icon-sm"></i> Select
+                                    Country</label>
+                                <div style="font-size: 11px; color: var(--text-muted);">
+                                    <span id="api-status-dot" style="color: var(--green);">●</span> API Status: <span
+                                        id="country-count-display">Loading...</span> Countries
+                                </div>
+                            </div>
+
+                            <div class="action-buttons form-group-inline" style="margin-top: 5px; margin-bottom: 10px;">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <button id="random-btn" class="btn btn-primary btn-block"><i
+                                            class="fa-solid fa-shuffle"></i> Random Identity</button>
+                                </div>
+                            </div>
+
+                            <!-- Country Grid Container -->
+                            <div id="country-grid-container" class="country-grid" style="flex-grow: 1;">
+                                <!-- Buttons will be injected here -->
+                                <div
+                                    style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 20px;">
+                                    <i class="fa-solid fa-circle-notch fa-spin"></i> Loading countries...
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESULT SECTION -->
+                <div class="col-md-6">
+                    <div class="app-card">
+                        <div class="form-group"
+                            style="height: 100%; display: flex; flex-direction: column; margin-bottom: 0;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <label style="margin-bottom: 0;"><i class="fa-solid fa-address-card icon-sm"></i>
+                                    Generated Identity</label>
+                                <button class="btn btn-secondary"
+                                    style="padding: 4px 10px; font-size: 12px; width: auto;" onclick="copyAllFields()">
+                                    <i class="fa-regular fa-copy"></i> Copy All
+                                </button>
+                            </div>
+
+                            <div id="result-output-container"
+                                style="flex-grow: 1; overflow-y: auto; padding-right: 5px; max-height: 440px;">
+                                <div style="text-align: center; color: var(--text-muted); padding: 40px 20px;">
+                                    <i class="fa-regular fa-id-badge"
+                                        style="font-size: 40px; margin-bottom: 15px; opacity: 0.5;"></i>
+                                    <p>Select a country or click random to generate an identity.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center" style="margin: 20px 0;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key': '3c1293e760852e3cc5ffaaca4c1f2e77',
+                    'format': 'iframe',
+                    'height': 50,
+                    'width': 320,
+                    'params': {}
+                };
+            </script>
+            <script type="text/javascript" async
+                src="//www.highperformanceformat.com/3c1293e760852e3cc5ffaaca4c1f2e77/invoke.js"></script>
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer>
+            <p>&copy; 2026 Fake Address. All Rights Reserved.</p>
+            <p style="margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <span><i class="fa-brands fa-telegram"></i> <a href="https://t.me/bro_bin_lagbe" target="_blank">Bro Bin
+                        Lagbe</a></span>
+                <span style="color: var(--border);">|</span>
+                <span><i class="fa-solid fa-code"></i> <a href="https://t.me/no_coder_pro" target="_blank">No Coder
+                        pro</a></span>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
+
 </html>
