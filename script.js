@@ -9,6 +9,13 @@ const apiStatusDot = document.getElementById('api-status-dot');
 let availableCountries = {};
 let currentAddressData = null;
 
+// Helper to construct API URLs safely
+function getApiUrl(path) {
+    const cleanBase = base_url.endsWith('/') ? base_url.slice(0, -1) : base_url;
+    const cleanPath = path.startsWith('/') ? path : '/' + path;
+    return `${cleanBase}${cleanPath}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchCountriesAndInit();
 
@@ -40,8 +47,7 @@ function filterCountries(query) {
 
 async function fetchCountriesAndInit() {
     try {
-        const cleanBase = base_url.replace(/\/$/, "");
-        const response = await fetch(`${cleanBase}/api/countries`);
+        const response = await fetch(getApiUrl('/api/countries'));
         if (response.ok) {
             const data = await response.json();
             availableCountries = data.countries;
@@ -100,8 +106,7 @@ async function fetchAddress(url) {
     showLoadingSkeletons();
 
     try {
-        const cleanBase = base_url.replace(/\/$/, "");
-        const response = await fetch(`${cleanBase}${url}`);
+        const response = await fetch(getApiUrl(url));
         const data = await response.json();
 
         if (response.ok) {
