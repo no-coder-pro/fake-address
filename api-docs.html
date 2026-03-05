@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - fakexy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+    <div id="app">
+        <nav class="navigations">
+            <a href="index.html" class="site-header">fakexy</a>
+            <div class="header-bar"></div>
+        </nav>
+
+        <div class="container">
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-md-12">
+                    <div class="app-card">
+                        <h2 class="checker-title"><i class="fa-solid fa-code icon-sm"></i> API Endpoints</h2>
+                        <p class="text-muted">Integrate our fake address generator directly into your application.</p>
+
+                        <div class="api-demo">
+                            <h3>1. Get Country List</h3>
+                            <code>GET /api/countries</code>
+                            <p>Returns a mapping of country codes to names and the total count of addresses available
+                                for each.</p>
+                        </div>
+
+                        <div class="api-demo">
+                            <h3>2. Get Random Address</h3>
+                            <code>GET /api/random</code>
+                            <p>Returns a completely random address from any supported country.</p>
+                        </div>
+
+                        <div class="api-demo">
+                            <h3>3. Get Specific Country Address</h3>
+                            <code>GET /api/address?code={country_code}</code>
+                            <p>Returns a random address for the specified country code (e.g., US, BD, XK).</p>
+                        </div>
+
+                        <div class="api-demo">
+                            <h3>4. Get Address by Name</h3>
+                            <code>GET /api/address?name={country_name}</code>
+                            <p>Returns a random address for the specified country name. Supports fuzzy matching.</p>
+                        </div>
+
+                        <div style="margin-top: 30px;">
+                            <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 fakexy. All Rights Reserved.</p>
+            <p style="margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <span><i class="fa-brands fa-telegram"></i> <a href="https://t.me/bro_bin_lagbe" target="_blank">Bro Bin
+                        Lagbe</a></span>
+                <span style="border-left: 1px solid var(--border); height: 15px;"></span>
+                <span><i class="fa-solid fa-code"></i> <a href="https://t.me/no_coder_pro" target="_blank">No Coder
+                        pro</a></span>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>

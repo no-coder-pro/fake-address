@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fake Address Generator</title>
+    <meta name="description"
+        content="Free online fake address generator. Fast, secure, and reliable tool for generating random addresses for multiple countries.">
+    <meta name="keywords" content="fake address, address generator, random address, test data, fake data generator">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Fake Address Generator">
+    <meta property="og:description" content="Free online fake address generator.">
+
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <meta name="theme-color" content="#1e3a8a">
+    <link rel="icon" type="image/png" href="https://bbinl.site/cc-gen/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navigations">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="index.html" class="site-header">fakexy</a>
+                <div
+                    style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-muted); background: rgba(255,255,255,0.03); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border);">
+                    <i id="api-status-dot" class="fa-solid fa-circle"
+                        style="font-size: 8px; color: var(--text-muted); transition: color 0.3s;"></i>
+                    <span id="country-count-display">0</span> Countries
+                </div>
+            </div>
+            <div class="header-links">
+                <a href="api-docs.html">API Docs</a>
+                <a href="https://t.me/no_coder_xone" target="_blank">Join Us</a>
+            </div>
+            <div class="header-bar"></div>
+        </nav>
+
+        <div class="text-center" style="margin: 20px 0;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key': 'aeb1dc240df8fbfaef1b2b68907cfd5a',
+                    'format': 'iframe',
+                    'height': 60,
+                    'width': 468,
+                    'params': {}
+                };
+            </script>
+            <script type="text/javascript" async
+                src="//www.highperformanceformat.com/aeb1dc240df8fbfaef1b2b68907cfd5a/invoke.js"></script>
+        </div>
+
+        <div class="container">
+            <div class="info-card">
+                <p>
+                    <strong>Just Click On the Data to Copy it.</strong>
+                </p>
+            </div>
+
+            <div class="row row-main">
+                <div class="col-md-5">
+                    <div class="app-card" style="padding: 20px;">
+                        <div class="form-group">
+                            <label><i class="fa-solid fa-globe icon-sm"></i> Select Country</label>
+
+                            <!-- New Search Bar -->
+                            <div class="search-container" style="margin: 15px 0;">
+                                <div class="address-input-group">
+                                    <i class="fa-solid fa-magnifying-glass"
+                                        style="position: absolute; left: 12px; color: var(--text-muted);"></i>
+                                    <input type="text" id="country-search" placeholder="Search country..."
+                                        style="padding-left: 35px; background: #1e293b; border: 1px solid #334155;">
+                                </div>
+                            </div>
+
+                            <button id="random-btn" class="btn btn-primary btn-block" style="margin-bottom: 15px;">
+                                <i class="fa-solid fa-shuffle"></i> Random Identity
+                            </button>
+
+                            <div id="country-grid-container" class="country-grid">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    <i class="fa-solid fa-circle-notch fa-spin"></i> Loading countries...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div id="result-output-container">
+                        <!-- Tables will be injected here -->
+                        <div class="app-card" style="text-align: center; color: var(--text-muted); padding: 50px;">
+                            <i class="fa-regular fa-id-badge"
+                                style="font-size: 50px; margin-bottom: 20px; opacity: 0.3;"></i>
+                            <p>Select a country to generate an identity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin: 20px 0;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key': '3c1293e760852e3cc5ffaaca4c1f2e77',
+                    'format': 'iframe',
+                    'height': 50,
+                    'width': 320,
+                    'params': {}
+                };
+            </script>
+            <script type="text/javascript" async
+                src="//www.highperformanceformat.com/3c1293e760852e3cc5ffaaca4c1f2e77/invoke.js"></script>
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer>
+            <p>&copy; 2026 CxC Checker. All Rights Reserved.</p>
+            <p style="margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <span><i class="fa-brands fa-telegram"></i> <a href="https://t.me/bro_bin_lagbe" target="_blank">Bro Bin
+                        Lagbe</a></span>
+                <span style="color: var(--border);">|</span>
+                <span><i class="fa-solid fa-code"></i> <a href="https://t.me/no_coder_pro" target="_blank">No Coder
+                        pro</a></span>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
