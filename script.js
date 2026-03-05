@@ -1,4 +1,4 @@
-const base_url = "";
+const base_url = "https://fakexy-api-sage.vercel.app/";
 
 const randomBtn = document.getElementById('random-btn');
 const countryGridContainer = document.getElementById('country-grid-container');
@@ -236,3 +236,4 @@ function showToast(title, icon = 'success') {
         console.log(`Toast: ${title}`);
     }
 }
+
