@@ -40,7 +40,8 @@ function filterCountries(query) {
 
 async function fetchCountriesAndInit() {
     try {
-        const response = await fetch(`${base_url}/api/countries`);
+        const cleanBase = base_url.replace(/\/$/, "");
+        const response = await fetch(`${cleanBase}/api/countries`);
         if (response.ok) {
             const data = await response.json();
             availableCountries = data.countries;
@@ -99,7 +100,8 @@ async function fetchAddress(url) {
     showLoadingSkeletons();
 
     try {
-        const response = await fetch(`${base_url}${url}`);
+        const cleanBase = base_url.replace(/\/$/, "");
+        const response = await fetch(`${cleanBase}${url}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -236,4 +238,3 @@ function showToast(title, icon = 'success') {
         console.log(`Toast: ${title}`);
     }
 }
-
