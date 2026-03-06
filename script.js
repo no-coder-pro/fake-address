@@ -162,6 +162,7 @@ function renderAddressFields(address) {
         'Time Zone',
         'Full Name',
         'Gender',
+        'Birthday'
         'Phone Number'
     ];
 
@@ -246,3 +247,4 @@ function showToast(title, icon = 'success') {
         console.log(`Toast: ${title}`);
     }
 }
+
