@@ -1,6 +1,6 @@
-const base_url = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+const base_url = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
     ? "http://127.0.0.1:5000/"
-    : "https://fakexy-api-sage.vercel.app/"; // TODO: Replace with your actual Vercel URL
+    : "https://fakexy-api-sage.vercel.app/";
 
 
 const randomBtn = document.getElementById('random-btn');
@@ -161,8 +161,8 @@ function renderAddressFields(address) {
         'Currency',
         'Time Zone',
         'Full Name',
+        'Birthday',
         'Gender',
-        'Birthday'
         'Phone Number'
     ];
 
@@ -247,4 +247,3 @@ function showToast(title, icon = 'success') {
         console.log(`Toast: ${title}`);
     }
 }
-
