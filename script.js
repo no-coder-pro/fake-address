@@ -1,4 +1,7 @@
-const base_url = "https://fakexy-api-sage.vercel.app/";
+const base_url = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? "http://127.0.0.1:5000/"
+    : "https://fakexy-api-sage.vercel.app/"; // TODO: Replace with your actual Vercel URL
+
 
 const randomBtn = document.getElementById('random-btn');
 const countryGridContainer = document.getElementById('country-grid-container');
